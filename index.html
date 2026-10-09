@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Electronics Shopping Store</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar">
+
+        <div class="logo">
+            <i class="bi bi-lightning-charge-fill"></i>
+            ElectroMart
+        </div>
+
+     <nav id="navLinks">
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#categories">Categories</a>
+    <a href="#compare">Compare</a>
+    <a href="#cart">
+        Cart <span id="cartCount">0</span>
+    </a>
+
+    <a href="login.html" id="loginLink">Login</a>
+    <button id="logoutBtn" onclick="logout()" style="display: none;">
+        Logout
+    </button>
+</nav>
+
+        <button
+            class="menu-btn"
+            onclick="toggleMenu()"
+            aria-label="Toggle navigation menu"
+        >
+            <i class="bi bi-list"></i>
+        </button>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <p class="small-heading">
+                WELCOME TO ELECTROMART
+            </p>
+
+            <h1>
+                Shop Smarter.<br>
+                Compare Better.
+            </h1>
+
+            <p>
+                Find the best electronics, compare products
+                and make smarter purchasing decisions.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#products" class="btn primary-btn">
+                    Shop Now
+                </a>
+
+                <a href="#compare" class="btn secondary-btn">
+                    Compare Products
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-image">
+
+            <i class="bi bi-laptop"></i>
+            <i class="bi bi-phone"></i>
+            <i class="bi bi-headphones"></i>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CATEGORIES ================= -->
+    <section class="categories" id="categories">
+
+        <h2>Shop By Category</h2>
+
+        <p class="section-description">
+            Explore electronics according to your needs.
+        </p>
+
+        <div class="category-container">
+
+            <button onclick="filterCategory('All')">
+                <i class="bi bi-grid"></i>
+                <span>All</span>
+            </button>
+
+            <button onclick="filterCategory('Smartphones')">
+                <i class="bi bi-phone"></i>
+                <span>Smartphones</span>
+            </button>
+
+            <button onclick="filterCategory('Laptops')">
+                <i class="bi bi-laptop"></i>
+                <span>Laptops</span>
+            </button>
+
+            <button onclick="filterCategory('Headphones')">
+                <i class="bi bi-headphones"></i>
+                <span>Headphones</span>
+            </button>
+
+            <button onclick="filterCategory('Smartwatches')">
+                <i class="bi bi-watch"></i>
+                <span>Smartwatches</span>
+            </button>
+
+            <button onclick="filterCategory('Televisions')">
+                <i class="bi bi-tv"></i>
+                <span>Televisions</span>
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PRODUCTS ================= -->
+    <section class="products-section" id="products">
+
+        <div class="section-heading">
+
+            <div>
+                <h2>Featured Products</h2>
+                <p>Choose from our popular electronics.</p>
+            </div>
+
+            <div class="search-box">
+
+                <i class="bi bi-search"></i>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search products..."
+                    onkeyup="searchProducts()"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- SORT -->
+        <div class="product-controls">
+
+            <select
+                id="sortSelect"
+                onchange="sortProducts()"
+            >
+
+                <option value="default">
+                    Sort Products
+                </option>
+
+                <option value="low">
+                    Price: Low to High
+                </option>
+
+                <option value="high">
+                    Price: High to Low
+                </option>
+
+                <option value="rating">
+                    Highest Rating
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- PRODUCT CARDS -->
+        <div
+            class="product-container"
+            id="productContainer"
+        ></div>
+
+        <p
+            id="noProducts"
+            class="no-products"
+        >
+            No products found.
+        </p>
+
+    </section>
+
+
+    <!-- ================= COMPARISON ================= -->
+    <section
+        class="compare-section"
+        id="compare"
+    >
+
+        <h2>Compare Products</h2>
+
+        <p>
+            Select products and compare their specifications.
+        </p>
+
+        <div
+            id="compareContainer"
+            class="compare-container"
+        >
+
+            <div class="empty-compare">
+
+                <i class="bi bi-arrow-left-right"></i>
+
+                <h3>
+                    No Products Selected
+                </h3>
+
+                <p>
+                    Select products using the Compare button
+                    to compare them here.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CART ================= -->
+    <section
+        class="cart-section"
+        id="cart"
+    >
+
+        <h2>Shopping Cart</h2>
+
+        <div id="cartContainer">
+
+            <div class="empty-cart">
+
+                <i class="bi bi-cart-x"></i>
+
+                <h3>
+                    Your cart is empty
+                </h3>
+
+                <p>
+                    Add products to your cart to see them here.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+
+        <div class="footer-content">
+
+            <div>
+
+                <h3>
+                    <i class="bi bi-lightning-charge-fill"></i>
+                    ElectroMart
+                </h3>
+
+                <p>
+                    Shop smarter. Compare better.
+                    Buy with confidence.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4>Quick Links</h4>
+
+                <a href="#home">Home</a>
+                <a href="#products">Products</a>
+                <a href="#compare">Compare</a>
+                <a href="#cart">Cart</a>
+
+            </div>
+
+
+            <div>
+
+                <h4>Contact</h4>
+
+                <p>
+                    Email: support@electromart.com
+                </p>
+
+                <p>
+                    Phone: +91 98765 43210
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+            © 2026 ElectroMart. All Rights Reserved.
+        </div>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <!-- NO SUPABASE / NO BACKEND -->
+    <script src="script.js"></script>
+
+</body>
+</html>

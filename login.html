@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | ElectroMart</title>
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <!-- Existing CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="auth-container">
+
+        <div class="auth-box">
+
+            <div class="auth-logo">
+                <i class="bi bi-lightning-charge-fill"></i>
+                ElectroMart
+            </div>
+
+            <h2>Welcome Back!</h2>
+
+            <p class="auth-description">
+                Login to continue shopping.
+            </p>
+
+            <form id="loginForm">
+
+                <div class="input-group">
+                    <label for="loginEmail">Email</label>
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        placeholder="Enter your email"
+                        required
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label for="loginPassword">Password</label>
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        placeholder="Enter your password"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="auth-btn">
+                    Login
+                </button>
+
+            </form>
+
+            <p class="auth-switch">
+                Don't have an account?
+                <a href="signup.html">Sign Up</a>
+            </p>
+
+            <p class="back-home">
+                <a href="index.html">
+                    <i class="bi bi-arrow-left"></i>
+                    Back to Home
+                </a>
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- Authentication JavaScript -->
+    <script src="auth.js"></script>
+
+</body>
+
+</html>
